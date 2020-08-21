@@ -1,1 +1,4 @@
 /* pages/demo/demo.wxss */
+.message {
+  text-align: center;
+}

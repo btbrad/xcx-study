@@ -5,7 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
+    msg: 'Who are you?',
+    userInfo: ''
+  },
 
+  clickMe() {
+    let _this = this
+    wx.getUserInfo({
+      success(res) {
+        _this.setData({
+          userInfo: res.userInfo
+        })
+        _this.setMessage()
+      }
+    })
+  },
+  setMessage() {
+    let {userInfo} = this.data
+    this.setData({
+      msg: `Hello ${userInfo.nickName}`
+    })
   },
 
   /**

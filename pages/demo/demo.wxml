@@ -1,2 +1,3 @@
 <!--pages/demo/demo.wxml-->
-<text>pages/demo/demo.wxml</text>
+<view class="message">{{msg}}</view>
+<button bindtap="clickMe">click Me</button>
