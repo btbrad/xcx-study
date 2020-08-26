@@ -1,6 +1,6 @@
 {
-  "entryPagePath": "pages/demo/demo",
   "pages": [
+    "pages/news/news",
     "pages/index/index",
     "pages/logs/logs",
     "pages/demo/demo"
