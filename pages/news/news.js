@@ -5,23 +5,34 @@ Page({
    */
   data: {
     list: [],
+    currentPage: 1,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getData()
+  },
+  getData: function () {
+    let { list, currentPage } = this.data
     wx.request({
-      url: 'http://localhost:9527/list',
+      url: `http://localhost:9527/list?page=${currentPage}`,
       success: (res) => {
         console.log(res)
         this.setData({
-          list: res.data,
+          list: [...list, ...res.data],
         })
+        if (!res.data.length) {
+          wx.showToast({
+            title: '没有更多了...',
+            icon: 'info',
+            duration: 2000,
+          })
+        }
       },
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -50,7 +61,13 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {},
+  onReachBottom: function () {
+    const { currentPage } = this.data
+    this.setData({
+      currentPage: currentPage + 1,
+    })
+    this.getData()
+  },
 
   /**
    * 用户点击右上角分享

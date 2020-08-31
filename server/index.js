@@ -11,6 +11,7 @@ router.get('/', async (ctx) => {
 })
 
 router.get('/list', async (ctx) => {
+  console.log(ctx)
   const { page } = ctx.query
   let currentPage = page || 1
   let data = JSON.parse(JSON.stringify(newList)).filter(
