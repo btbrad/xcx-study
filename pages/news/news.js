@@ -19,7 +19,6 @@ Page({
     wx.request({
       url: `http://localhost:9527/list?page=${currentPage}`,
       success: (res) => {
-        console.log(res)
         this.setData({
           list: [...list, ...res.data],
         })
@@ -32,6 +31,12 @@ Page({
           })
         }
       },
+    })
+  },
+  goToDetail(e) {
+    let { id } = e.currentTarget.dataset
+    wx.navigateTo({
+      url: `/pages/detail/detail?id=${id}`,
     })
   },
   /**

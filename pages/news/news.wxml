@@ -1,6 +1,6 @@
 <!-- pages/news/news.wxml -->
 <view class="news-list-container">
-  <view class="news" wx:for="{{ list }}" wx:key="id">
+  <view class="news" wx:for="{{ list }}" wx:key="id" data-id="{{item.id}}" bindtap="goToDetail">
     <image class="news-list-img" src="{{ item.imageURL }}" mode="aspectFit" />
     <view class="news-brief">{{ item.title }}</view>
   </view>
