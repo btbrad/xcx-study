@@ -23,6 +23,7 @@ Page({
         this.setData({
           list: [...list, ...res.data],
         })
+        wx.hideLoading()
         if (!res.data.length) {
           wx.showToast({
             title: '没有更多了...',
@@ -62,6 +63,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    wx.showLoading({
+      title: '加载中...',
+    })
     const { currentPage } = this.data
     this.setData({
       currentPage: currentPage + 1,
