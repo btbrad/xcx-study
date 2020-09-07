@@ -1,0 +1,5 @@
+<!--components/comTest/comTest.wxml-->
+<view class="inner">
+  {{ innerText }}
+</view>
+<slot></slot>
