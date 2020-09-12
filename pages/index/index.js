@@ -15,6 +15,13 @@ Page({
       url: '../demo/demo'
     })
   },
+  onEvent: function(e) {
+    wx.showToast({
+      title: `子组件传参${e.detail}`,
+      icon: 'success',
+      duration: 2000
+    })
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

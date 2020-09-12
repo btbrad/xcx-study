@@ -21,6 +21,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    customMethod: function(){}
+    customMethod: function(){},
+    handleClick: function() {
+      this.triggerEvent('myevent', 123)
+    }
   }
 })
