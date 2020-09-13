@@ -1,10 +1,15 @@
-<!--index.wxml-->
+<!-- index.wxml -->
 <view class="container">
   <com-test inner-text="some text" bindmyevent="onEvent">
     <h2>组件插槽test</h2>
   </com-test>
+  <view>
+    <button type="primary" bindtap="getSocket">发送websocket</button>
+  </view>
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+      获取头像昵称
+    </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
